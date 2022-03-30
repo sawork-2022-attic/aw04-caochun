@@ -2,20 +2,14 @@ package com.example.webpos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 @SpringBootApplication
-@Configuration
+@EnableCaching
+@EnableRedisHttpSession
 public class WebPosApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(WebPosApplication.class, args);
-    }
-
-    @Bean
-    public JedisConnectionFactory connectionFactory() {
-        return new JedisConnectionFactory();
     }
 }

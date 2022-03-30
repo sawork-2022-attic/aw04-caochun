@@ -19,8 +19,6 @@ public class PosController {
 
     private PosService posService;
 
-    private Cart cart;
-
     private Cart getCart() {
         Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null) {
@@ -49,7 +47,7 @@ public class PosController {
 
     @GetMapping("/add")
     public String addByGet(@RequestParam(name = "pid") String pid, Model model) {
-        saveCart(posService.add(cart, pid, 1));
+        saveCart(posService.add(getCart(), pid, 1));
         model.addAttribute("products", posService.products());
         model.addAttribute("cart", getCart());
         return "index";
