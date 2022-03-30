@@ -8,6 +8,10 @@
 
 spring-shell.log
 
+**/*.aof
+**/*.rdb
+**/nodes.conf
+
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
